@@ -24,7 +24,7 @@ The dataset before using CycleGAN should be organized as following structure:
 
 ## Results
 
-The corresponding result is saved in <dataset\_name>\_results.
+The corresponding result is saved in `<dataset_name>_results`.
 
 The result directory is organized as following structure:
 
