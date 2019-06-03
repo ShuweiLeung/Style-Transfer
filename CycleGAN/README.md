@@ -14,7 +14,7 @@ The dataset before using CycleGAN should be organized as following structure:
 
 ```
 .
-├── datasets                   
+├── data                   
 |   ├── <dataset_name>         # Like facades
 |   |   ├── trainA             # Trainset A
 |   |   ├── trainB             # Trainset B
@@ -24,19 +24,27 @@ The dataset before using CycleGAN should be organized as following structure:
 
 ## Results
 
+The corresponding result is saved in <dataset\_name>\_results.
+
+The result directory is organized as following structure:
+
+```
+.
+├── <dataset_name>_results   # Dataset name like facades              
+|   ├── test_results         # test_results
+|   |   ├── AtoB             # A transfers to B
+|   |   ├── BtoA             # B transfers to A
+|   ├── train_results        # train_results
+|   |   ├── AtoB             # A transfers to B
+|   |   ├── BtoA             # B transfers to A
+```
+
+## Demo
+
 Please visit the demo website to see more results!
 
 **[Demo Website](https://sites.google.com/view/ece285-styletransfer/%E9%A6%96%E9%A1%B5?authuser=1)**
 
-## Development Environment
-
-* Ubuntu 14.04 LTS
-* NVIDIA GTX 1080 ti
-* cuda 8.0
-* Python 2.7.6
-* pytorch 0.1.12
-* matplotlib 1.3.1
-* scipy 0.19.1
 
 ## Reference
 
