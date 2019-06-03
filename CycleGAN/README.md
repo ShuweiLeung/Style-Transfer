@@ -10,7 +10,7 @@ You can download datasets manually: https://people.eecs.berkeley.edu/~taesung_pa
 
 Downloadable datasets: apple2orange, summer2winter_yosemite, horse2zebra, monet2photo, cezanne2photo, ukiyoe2photo, vangogh2photo, maps, cityscapes, facades, iphone2dslr_flower, ae_photos
 
-Or you can run script to download dataset automatically via below the command:
+Or you can run shell script to download dataset automatically via below the command:
 
 `./download_dataset <dataset_name>`
 
