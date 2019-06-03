@@ -15,7 +15,7 @@ The dataset before using CycleGAN should be organized as following structure:
 ```
 .
 ├── datasets                   
-|   ├── <dataset_name>         # i.e. brucewayne2batman
+|   ├── <dataset_name>         # Like facades
 |   |   ├── trainA             # Trainset A
 |   |   ├── trainB             # Trainset B
 |   |   ├── testA              # Testset A
