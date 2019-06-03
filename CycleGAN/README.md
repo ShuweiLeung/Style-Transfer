@@ -5,10 +5,24 @@ Pytorch implementation of CycleGAN [1].
 * you can see more information for network architecture and training details in https://arxiv.org/pdf/1703.10593.pdf
 
 ## dataset
-* apple2orange
-  * apple training images: 995, orange training images: 1,019, apple test images: 266, orange test images: 248
-* horse2zebra
-  * horse training images: 1,067, zebra training images: 1,334, horse test images: 120, zebra test images: 140
+
+Downloadable datasets: apple2orange, summer2winter_yosemite, horse2zebra, monet2photo, cezanne2photo, ukiyoe2photo, vangogh2photo, maps, cityscapes, facades, iphone2dslr_flower, ae_photos
+
+run below commands to download dataset
+
+`./download_dataset <dataset_name>`
+
+The dataset should be organized as follow structure:
+
+```
+.
+├── datasets                   
+|   ├── <dataset_name>         # i.e. brucewayne2batman
+|   |   ├── trainA             # Trainset A
+|   |   ├── trainB             # Trainset B
+|   |   ├── testA              # Testset A
+|   |   ├── testB              # Testset B
+```
 
 ## Resutls
 ### apple2orange (after 200 epochs)
