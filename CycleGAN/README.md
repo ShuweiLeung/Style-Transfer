@@ -24,7 +24,9 @@ The dataset should be organized as follow structure:
 |   |   ├── testB              # Testset B
 ```
 
-## Resutls
+## Results
+
+Please visit the demo website to see more results!
 
 **[Demo Website](https://sites.google.com/view/ece285-styletransfer/%E9%A6%96%E9%A1%B5?authuser=1)**
 
