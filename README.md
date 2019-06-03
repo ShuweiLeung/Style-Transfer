@@ -2,7 +2,7 @@
 
 **Team: MLYZ**
 
-**Members: **
+**Members\:**
 
 ## Neural Style Transfer
 
