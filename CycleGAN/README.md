@@ -6,13 +6,15 @@ Pytorch implementation of CycleGAN [1].
 
 ## Dataset
 
+You can download datasets manually: https://people.eecs.berkeley.edu/~taesung_park/CycleGAN/datasets/
+
 Downloadable datasets: apple2orange, summer2winter_yosemite, horse2zebra, monet2photo, cezanne2photo, ukiyoe2photo, vangogh2photo, maps, cityscapes, facades, iphone2dslr_flower, ae_photos
 
-Run below commands to download dataset
+Or you can run script to download dataset automatically via below the command:
 
 `./download_dataset <dataset_name>`
 
-The dataset should be organized as follow structure:
+The dataset before using CycleGAN should be organized as following structure:
 
 ```
 .
