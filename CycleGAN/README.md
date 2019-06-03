@@ -1,7 +1,5 @@
 # CycleGAN
 
-## Team: MLYZ
-
 ## Dataset
 
 You can download datasets manually: https://people.eecs.berkeley.edu/~taesung_park/CycleGAN/datasets/
