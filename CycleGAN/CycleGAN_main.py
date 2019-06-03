@@ -42,18 +42,6 @@ print('-------------- End ----------------')
 
 # results save path
 root, model = utils.filepath_check_and_initialize(opt.dataset, opt.save_root)
-"""
-root = opt.dataset + '_' + opt.save_root + '/'
-model = opt.dataset + '_'
-if not os.path.isdir(root):
-    os.mkdir(root)
-if not os.path.isdir(root + 'test_results'):
-    os.mkdir(root + 'test_results')
-if not os.path.isdir(root + 'test_results/AtoB'):
-    os.mkdir(root + 'test_results/AtoB')
-if not os.path.isdir(root + 'test_results/BtoA'):
-    os.mkdir(root + 'test_results/BtoA')
-"""
 
 # data_loader
 transform = transforms.Compose([
@@ -69,25 +57,7 @@ test_loader_B = utils.data_load('data/' + opt.dataset, opt.test_subfolder + 'B',
 # initialize generators and discriminators
 G_A, G_B = network.initialize_generators(opt.input_ngc, opt.output_ngc, opt.ngf, opt.nb, opt.cuda)
 D_A, D_B = network.initialize_discriminators(opt.input_ndc, opt.output_ndc, opt.ndf, opt.cuda)
-"""
-G_A = network.generator(opt.input_ngc, opt.output_ngc, opt.ngf, opt.nb)
-G_B = network.generator(opt.input_ngc, opt.output_ngc, opt.ngf, opt.nb)
-D_A = network.discriminator(opt.input_ndc, opt.output_ndc, opt.ndf)
-D_B = network.discriminator(opt.input_ndc, opt.output_ndc, opt.ndf)
-G_A.weight_init(mean=0.0, std=0.02)
-G_B.weight_init(mean=0.0, std=0.02)
-D_A.weight_init(mean=0.0, std=0.02)
-D_B.weight_init(mean=0.0, std=0.02)
-if opt.cuda:
-    G_A.cuda()
-    G_B.cuda()
-    D_A.cuda()
-    D_B.cuda()
-G_A.train()
-G_B.train()
-D_A.train()
-D_B.train()
-"""
+
 print('---------- Networks initialized -------------')
 utils.print_network(G_A)
 utils.print_network(G_B)
@@ -106,23 +76,10 @@ D_A_optimizer = optim.Adam(D_A.parameters(), lr=opt.lrD, betas=(opt.beta1, opt.b
 D_B_optimizer = optim.Adam(D_B.parameters(), lr=opt.lrD, betas=(opt.beta1, opt.beta2))
 
 # image store
-# fakeA_store = util.image_store(50)
-# fakeB_store = util.image_store(50)
 fakeA_store = utils.ImagePool(50)
 fakeB_store = utils.ImagePool(50)
 
 train_hist = utils.train_histogram_initialize()
-"""
-train_hist = {}
-train_hist['D_A_losses'] = []
-train_hist['D_B_losses'] = []
-train_hist['G_A_losses'] = []
-train_hist['G_B_losses'] = []
-train_hist['A_cycle_losses'] = []
-train_hist['B_cycle_losses'] = []
-train_hist['per_epoch_ptimes'] = []
-train_hist['total_time'] = []
-"""
 
 print('**************************start training!**************************')
 start_time = time.time()
@@ -140,7 +97,6 @@ for epoch in range(opt.train_epoch):
         D_B_optimizer.param_groups[0]['lr'] -= opt.lrD / (opt.train_epoch - opt.decay_epoch)
         G_optimizer.param_groups[0]['lr'] -= opt.lrG / (opt.train_epoch - opt.decay_epoch)
 
-    #for (realA, _), (realB, _) in itertools.izip(train_loader_A, train_loader_B):
     for (realA, _), (realB, _) in zip(train_loader_A, train_loader_B):
         if opt.resize_scale:
             realA = utils.imgs_resize(realA, opt.resize_scale)
@@ -180,19 +136,12 @@ for epoch in range(opt.train_epoch):
         G_loss = G_A_loss + G_B_loss + A_cycle_loss + B_cycle_loss
         G_loss.backward()
         G_optimizer.step()
-
-        #train_hist['G_A_losses'].append(G_A_loss.data[0])
-        #train_hist['G_B_losses'].append(G_B_loss.data[0])
-        #train_hist['A_cycle_losses'].append(A_cycle_loss.data[0])
-        #train_hist['B_cycle_losses'].append(B_cycle_loss.data[0])
+        
         train_hist['G_A_losses'].append(G_A_loss.data)
         train_hist['G_B_losses'].append(G_B_loss.data)
         train_hist['A_cycle_losses'].append(A_cycle_loss.data)
         train_hist['B_cycle_losses'].append(B_cycle_loss.data)
-        #G_A_losses.append(G_A_loss.data[0])
-        #G_B_losses.append(G_B_loss.data[0])
-        #A_cycle_losses.append(A_cycle_loss.data[0])
-        #B_cycle_losses.append(B_cycle_loss.data[0])
+
         G_A_losses.append(G_A_loss.data)
         G_B_losses.append(G_B_loss.data)
         A_cycle_losses.append(A_cycle_loss.data)
@@ -204,7 +153,6 @@ for epoch in range(opt.train_epoch):
         D_A_real = D_A(realB)
         D_A_real_loss = MSE_loss(D_A_real, Variable(torch.ones(D_A_real.size()).cuda()))
 
-        # fakeB = fakeB_store.query(fakeB.data)
         fakeB = fakeB_store.query(fakeB)
         D_A_fake = D_A(fakeB)
         D_A_fake_loss = MSE_loss(D_A_fake, Variable(torch.zeros(D_A_fake.size()).cuda()))
@@ -213,8 +161,6 @@ for epoch in range(opt.train_epoch):
         D_A_loss.backward()
         D_A_optimizer.step()
 
-        #train_hist['D_A_losses'].append(D_A_loss.data[0])
-        #D_A_losses.append(D_A_loss.data[0])
         train_hist['D_A_losses'].append(D_A_loss.data)
         D_A_losses.append(D_A_loss.data)
 
@@ -224,7 +170,6 @@ for epoch in range(opt.train_epoch):
         D_B_real = D_B(realA)
         D_B_real_loss = MSE_loss(D_B_real, Variable(torch.ones(D_B_real.size()).cuda()))
 
-        # fakeA = fakeA_store.query(fakeA.data)
         fakeA = fakeA_store.query(fakeA)
         D_B_fake = D_B(fakeA)
         D_B_fake_loss = MSE_loss(D_B_fake, Variable(torch.zeros(D_B_fake.size()).cuda()))
@@ -233,8 +178,6 @@ for epoch in range(opt.train_epoch):
         D_B_loss.backward()
         D_B_optimizer.step()
 
-        #train_hist['D_B_losses'].append(D_B_loss.data[0])
-        #D_B_losses.append(D_B_loss.data[0])
         train_hist['D_B_losses'].append(D_B_loss.data)
         D_B_losses.append(D_B_loss.data)
 
@@ -253,70 +196,9 @@ for epoch in range(opt.train_epoch):
 
     if (epoch+1) % 10 == 0:
         test.test_results_network(test_loader_A, test_loader_B, G_A, G_B, opt.dataset)
-        """
-        # test A to B
-        n = 0
-        for realA, _ in test_loader_A:
-            n += 1
-            path = opt.dataset + '_results/test_results/AtoB/' + str(n) + '_input.png'
-            plt.imsave(path, (realA[0].numpy().transpose(1, 2, 0) + 1) / 2)
-            realA = Variable(realA.cuda(), volatile=True)
-            genB = G_A(realA)
-            path = opt.dataset + '_results/test_results/AtoB/' + str(n) + '_output.png'
-            plt.imsave(path, (genB[0].cpu().data.numpy().transpose(1, 2, 0) + 1) / 2)
-            recA = G_B(genB)
-            path = opt.dataset + '_results/test_results/AtoB/' + str(n) + '_recon.png'
-            plt.imsave(path, (recA[0].cpu().data.numpy().transpose(1, 2, 0) + 1) / 2)
-
-        # test B to A
-        n = 0
-        for realB, _ in test_loader_B:
-            n += 1
-            path = opt.dataset + '_results/test_results/BtoA/' + str(n) + '_input.png'
-            plt.imsave(path, (realB[0].numpy().transpose(1, 2, 0) + 1) / 2)
-            realB = Variable(realB.cuda(), volatile=True)
-            genA = G_B(realB)
-            path = opt.dataset + '_results/test_results/BtoA/' + str(n) + '_output.png'
-            plt.imsave(path, (genA[0].cpu().data.numpy().transpose(1, 2, 0) + 1) / 2)
-            recB = G_A(genA)
-            path = opt.dataset + '_results/test_results/BtoA/' + str(n) + '_recon.png'
-            plt.imsave(path, (recB[0].cpu().data.numpy().transpose(1, 2, 0) + 1) / 2)
-        """
     else:
         train.train_results_network(train_loader_A, train_loader_B, G_A, G_B, opt.dataset)
-        """
-        n = 0
-        for realA, _ in train_loader_A:
-            n += 1
-            path = opt.dataset + '_results/train_results/AtoB/' + str(n) + '_input.png'
-            plt.imsave(path, (realA[0].numpy().transpose(1, 2, 0) + 1) / 2)
-            realA = Variable(realA.cuda(), volatile=True)
-            genB = G_A(realA)
-            path = opt.dataset + '_results/train_results/AtoB/' + str(n) + '_output.png'
-            plt.imsave(path, (genB[0].cpu().data.numpy().transpose(1, 2, 0) + 1) / 2)
-            recA = G_B(genB)
-            path = opt.dataset + '_results/train_results/AtoB/' + str(n) + '_recon.png'
-            plt.imsave(path, (recA[0].cpu().data.numpy().transpose(1, 2, 0) + 1) / 2)
-            if n > 9:
-                break
-
-        # test B to A
-        n = 0
-        for realB, _ in train_loader_B:
-            n += 1
-            path = opt.dataset + '_results/train_results/BtoA/' + str(n) + '_input.png'
-            plt.imsave(path, (realB[0].numpy().transpose(1, 2, 0) + 1) / 2)
-            realB = Variable(realB.cuda(), volatile=True)
-            genA = G_B(realB)
-            path = opt.dataset + '_results/train_results/BtoA/' + str(n) + '_output.png'
-            plt.imsave(path, (genA[0].cpu().data.numpy().transpose(1, 2, 0) + 1) / 2)
-            recB = G_A(genA)
-            path = opt.dataset + '_results/train_results/BtoA/' + str(n) + '_recon.png'
-            plt.imsave(path, (recB[0].cpu().data.numpy().transpose(1, 2, 0) + 1) / 2)
-            if n > 9:
-                break
-        """
-
+        
 end_time = time.time()
 total_time = end_time - start_time
 train_hist['total_time'].append(total_time)
