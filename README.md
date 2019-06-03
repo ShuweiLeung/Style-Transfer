@@ -1,2 +1,3 @@
-# ECE285_StyleTransfer
-Style Transfer
+# Style Transfer
+
+## Team: MLYZ
