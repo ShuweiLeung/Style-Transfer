@@ -1,8 +1,6 @@
-# pytorch-CycleGAN
-Pytorch implementation of CycleGAN [1].
+# CycleGAN
 
-* you can download datasets: https://people.eecs.berkeley.edu/~taesung_park/CycleGAN/datasets/
-* you can see more information for network architecture and training details in https://arxiv.org/pdf/1703.10593.pdf
+## Team: MLYZ
 
 ## Dataset
 
