@@ -28,9 +28,9 @@ The project code is in the `styleTransfer` folder and organized as follows:
 
 `loss.py`   --  Functions to calculate content loss and style loss.
 
-`train.py`  --  Contains VGG class the defines the VGG-19 configuration
+`train.py`  --  Contains VGG class that defines the VGG-19 configuration.
 
-Code in `optimizer` and `reconstruct` is used to show how the style transfer implemented by reconstructing content and style image after particular convolution layers. 
+Code in `optimizer` and `reconstruct` are used to show how the style transfer implemented by reconstructing content and style image after particular convolution layers and how total loss envolve with the number of iterations. 
 
 ## Result
 All corresponding results is saved in `styleTransfer/images/result`
