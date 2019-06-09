@@ -73,7 +73,7 @@ test.py                   --   Definition of test function
 utils.py                  --   Definition of necessary auxiliary functions.
 download_dataset.sh       --   Dataset automatic download shell script
 data folder               --   Dataset location
-[dataset\_name]\_results  --   Results
+[dataset_name]_results  --   Results
 ```
 
 ## Reference
