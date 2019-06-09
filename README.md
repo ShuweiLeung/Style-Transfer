@@ -1,6 +1,6 @@
 # [Style Transfer] developed by MLYZ team
 
-This is the root directory of our project. Please visit the corresponding subfolder to see details.
+This is the root directory of our project. Please visit the corresponding subfolder to see more details. Each subfolder contains everything you want including code, guideline and test/training results.
 
 ## Results
 
