@@ -12,7 +12,7 @@ For UCSD `DSMLP` developer, you don't need to install anything.
 
 `python3 CycleGAN_main.py --dataset [dataset_name]`
 
-`CycleGAN_main.py` invokes `network.py` to generate generator and discriminator. During the training process, the main function will invoke `train.py` and `test.py` to translate training pictures and test pictures in folders. `utils.py` contains some auxiliary functions.
+`CycleGAN_main.py` invokes `network.py` to generate generator and discriminator. During the training process, the main function will invoke `train.py` and `test.py` to translate training pictures and test pictures in dataset folders. `utils.py` contains some necessary auxiliary functions.
 
 ## Dataset
 
