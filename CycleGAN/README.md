@@ -1,5 +1,7 @@
 # CycleGAN
 
+This is repo for Cycle-GANs image-to-image translation.
+
 ## Prerequisites
 - Python 3.3 or above
 - [Pytorch 0.4.0](torch.org)
