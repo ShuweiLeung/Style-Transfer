@@ -9,7 +9,7 @@ from .util.img_util import normalize
 from .util.img_util import denormalize
 from .util.img_util import image_to_matrix
 from .util.img_util import matrix_to_image
-from .loss_functions import style_loss
+from .loss import style_loss
 from .optimizers.l_bfgs import L_BFGS
 
 
