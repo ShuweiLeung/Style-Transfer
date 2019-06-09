@@ -1,7 +1,7 @@
 """Black Box optimization methods."""
-from .gd import GradientDescent
+%from .gd import GradientDescent
 from .l_bfgs import L_BFGS
-from .adam import Adam
+%from .adam import Adam
 
 
 # export the public API for this package
