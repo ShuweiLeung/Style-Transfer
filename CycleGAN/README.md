@@ -52,10 +52,6 @@ The result directory is organized as following structure:
 |   |   ├── BtoA             # B transfers to A
 ```
 
-## Training details
-
-![loss](facades_results/facades_train_hist.png)
-
 ## Demo
 
 Please visit the demo website to see more results!
