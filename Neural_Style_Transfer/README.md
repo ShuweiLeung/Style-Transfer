@@ -1,6 +1,6 @@
 # Neural Style Transfer
 ## Dataset
-We download several images as content and style back plate. All these images are used in **[Gaty' paper](https://arxiv.org/pdf/1508.06576.pdf)** so that we can implement the style transfer effect as more as possible.
+We download several images as content and style back plate. All these images are used in **[Gatys' paper](https://arxiv.org/pdf/1508.06576.pdf)** so that we can implement the style transfer effect as more as possible.
 More style images can be download from WikiArt(https://www.wikiart.org/en/vincent-van-gogh)
 
 ## Result
