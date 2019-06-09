@@ -1,7 +1,6 @@
 # Cycle-GANs
 
-This is repo for Cycle-GANs image-to-image translation by MLYZ team.
-
+This is repo for Cycle-GANs Image-to-image Translation by MLYZ team.
 ## Prerequisites
 - Python 3.3 or above
 - [Pytorch 0.4.0](torch.org)
