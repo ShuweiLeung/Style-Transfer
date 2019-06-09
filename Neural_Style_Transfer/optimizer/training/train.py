@@ -9,7 +9,7 @@ from .util.img_util import denormalize
 from .util.img_util import load_image
 from .util.img_util import image_to_matrix
 from .util.img_util import matrix_to_image
-from .loss_functions import content_loss, style_loss, total_variation_loss
+from .loss import content_loss, style_loss, total_variation_loss
 
 
 # the template for the class's __repr__ method
