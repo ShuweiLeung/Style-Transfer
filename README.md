@@ -1,17 +1,18 @@
-# Style Transfer
+# Neural Style Transfer
+## Dataset
+We download serveral images as content ans style back plate. All these images are used in **[Gaty' paper](https://arxiv.org/pdf/1508.06576.pdf)** so that we can implement the style transfer effect as more as possible.
+More style images can be download from WikiArt(https://www.wikiart.org/en/vincent-van-gogh)
 
-**Team: MLYZ**
+## Result
+All corresponding results is saved in 'styleTransfer/images/result'
+Each result image is named by its style and content followed by its correspoding iteration times.
 
-**Members\: Qi Ma, Shuwei Liang, Zhuo Yue, Cong Zhao**
+## Demo
+Please visit the demo website to see more results!
 
-## Neural Style Transfer
-We implemented the algorithm in Gatys paper on "A Neural Algorithm for Artistic Style". The artifical system is based on deep neural network, it uses neural representations to separate and recombine content and style images. We applied 16 convolutional and 5 average pooling layers of the VGG-19 network. 
+**[Demo Website](https://sites.google.com/view/ece285-styletransfer/%E9%A6%96%E9%A1%B5?authuser=1)**
 
-We perform a white noise image to find another image that matches the feature responses of the originnal image. Then define squared-error loss between two feature represenntations as content-loss. 
-The feature correlations are given by Gram matrix, so we also generate the Gram matrix between the vectorized feature maps i and j in layer l.
-
-To generate a texture that matches the style of a given style image, we use gradient decent (in fact, we use L_BFGS as achievement of lower loss) from a white noise image to find anotherimage that matches the style representations of the original image, which is done by minimizing the mean-squared distance between the entries of the Gram matrix from the original image and the Gram matrix of the image to be generated. 
-
-The total loss is weighted sum of content-loss and style-loss. We then have to determine the ratio of weights of content-loss and tyle-loss in training.
-
-## Image-to-Image Translation using Cycle-GANs
+## Reference
+[1] L. Gatys, A. Ecker, and M. Bethge, “A neural algorithm of artistic style,” Journal of Vision, vol. 16, no. 12, p. 326, 2016.
+[2] K. Simonyan and A. Zisserman, “Very deep convolutional networks for large-scale image recognition,” in International Conference on Learning Representations, 2015.
+[3] R. Novak and Y. Nikulin, “Improving the neural algorithm of artistic style,” CoRR, vol. abs/1605.04603, 2016.
