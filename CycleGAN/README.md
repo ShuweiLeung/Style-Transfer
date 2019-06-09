@@ -48,6 +48,5 @@ Please visit the demo website to see more results!
 
 ## Reference
 
-[1] Zhu, Jun-Yan, et al. "Unpaired image-to-image translation using cycle-consistent adversarial networks." arXiv preprint arXiv:1703.10593 (2017).
-
-(Full paper: https://arxiv.org/pdf/1703.10593.pdf)
+[1] P. Jun-Yan, Taesung and Alexei, “Unpaired image-to-image translation using cycle-consistent
+adversarial networks,” 2018
