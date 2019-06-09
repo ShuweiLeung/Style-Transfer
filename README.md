@@ -14,5 +14,7 @@ Please visit the demo website to see more results!
 
 ## Reference
 [1] L. Gatys, A. Ecker, and M. Bethge, “A neural algorithm of artistic style,” Journal of Vision, vol. 16, no. 12, p. 326, 2016.
+
 [2] K. Simonyan and A. Zisserman, “Very deep convolutional networks for large-scale image recognition,” in International Conference on Learning Representations, 2015.
+
 [3] R. Novak and Y. Nikulin, “Improving the neural algorithm of artistic style,” CoRR, vol. abs/1605.04603, 2016.
