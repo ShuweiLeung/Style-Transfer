@@ -1,5 +1,15 @@
 # CycleGAN
 
+# Prerequisites
+- Python 3.3 or above
+- [Pytorch 0.4.0](torch.org)
+
+For UCSD `DSMLP` developer, you don't need to install anything.
+
+# Quick Start
+
+`python3 CycleGAN_main.py --dataset [dataset_name]`
+
 ## Dataset
 
 You can download datasets manually: https://people.eecs.berkeley.edu/~taesung_park/CycleGAN/datasets/
