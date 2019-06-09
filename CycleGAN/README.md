@@ -63,6 +63,18 @@ Please visit the demo website to see more results!
 
 **[Demo Website](https://sites.google.com/view/ece285-styletransfer/%E9%A6%96%E9%A1%B5?authuser=1)**
 
+## Code Organization
+
+demo.ipynb                --   Run a demo of our code
+CycleGAN_main.py          --   Main function
+network.py                --   Definition of our networks
+train.py                  --   Definition of training function 
+test.py                   --   Definition of test function
+utils.py                  --   Definition of necessary auxiliary functions.
+download_dataset.sh       --   Dataset automatic download shell script
+data folder               --   Dataset location
+[dataset\_name]\_results  --   Results
+
 ## Reference
 
 [1] P. Jun-Yan, Taesung and Alexei, “Unpaired image-to-image translation using cycle-consistent
