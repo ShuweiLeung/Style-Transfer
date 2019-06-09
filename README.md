@@ -1,6 +1,10 @@
-# [Style Transfer] developed by MLYZ team
+# Implementations on Neural Style Transfer and Cycle-GANs Image Translation
 
 This is the root directory of our project. Please visit the corresponding subfolder to see more details. Each subfolder contains everything you want including code, guideline and test/training results.
+
+## Authors
+
+Qi Ma, Shuwei Liang, Zhuo Yue, Cong Zhao (MLYZ team)
 
 ## Results
 
