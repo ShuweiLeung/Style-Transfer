@@ -65,6 +65,7 @@ Please visit the demo website to see more results!
 
 ## Code Organization
 
+```
 demo.ipynb                --   Run a demo of our code
 CycleGAN_main.py          --   Main function
 network.py                --   Definition of our networks
@@ -74,6 +75,7 @@ utils.py                  --   Definition of necessary auxiliary functions.
 download_dataset.sh       --   Dataset automatic download shell script
 data folder               --   Dataset location
 [dataset\_name]\_results  --   Results
+```
 
 ## Reference
 
