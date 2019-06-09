@@ -19,4 +19,3 @@ Please visit the demo website to see more results!
 
 [3] R. Novak and Y. Nikulin, “Improving the neural algorithm of artistic style,” CoRR, vol. abs/1605.04603, 2016.
 
-[4] Jun-Yan Zhu and Taesung Park and Phillip Isola and Alexei A. Efros, “Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks”, 2018.
