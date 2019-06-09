@@ -1,5 +1,5 @@
 # Neural Style Transfer
-This project is a TensorFlow implementation of A Neural Algorithm of Artistic Style by Leon A. Gatys, Alexander S. Ecker, and Matthias Bethge, which implement a VGG-19 network perform image style transfer.
+This project is a TensorFlow implementation of **[A Neural Algorithm of Artistic Style](https://arxiv.org/pdf/1508.06576.pdf)** by Leon A. Gatys, Alexander S. Ecker, and Matthias Bethge, which implement a VGG-19 network perform image style transfer.
 
 ## Prerequisites
 - Python 3.3 or above
@@ -22,13 +22,13 @@ We use a pre-trained VGG network, with the network weights being stored in image
 ## Code organization
 The project code is in the `styleTransfer` folder and organized as follows:
 
-Style_transfer_demo.ipynb    --  Main code for loading images, running and training model, and generating new artictic style image. 
+`Style_transfer_demo.ipynb`   --  Main code for loading images, running and training model, and generating new artictic style image. 
 
-utils.py  --  Function load_image and save_image to load and save images.
+`utils.py`  --  Function load_image and save_image to load and save images.
 
-loss.py   --  Functions to calculate content loss and style loss.
+`loss.py`   --  Functions to calculate content loss and style loss.
 
-train.py  --  Contains VGG class the defines the VGG-19 configuration
+`train.py`  --  Contains VGG class the defines the VGG-19 configuration
 
 Code in `optimizer` and `reconstruct` is used to show how the style transfer implemented by reconstructing content and style image after particular convolution layers. 
 
