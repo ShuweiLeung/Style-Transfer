@@ -1,4 +1,4 @@
-# CycleGAN
+# Cycle-GANs
 
 This is repo for Cycle-GANs image-to-image translation.
 
