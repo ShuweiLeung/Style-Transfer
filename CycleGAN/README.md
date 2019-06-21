@@ -1,6 +1,6 @@
 # Cycle-GANs
 
-This is the repo for Cycle-GANs Image-to-image Translation.
+This is the repo for Cycle-GANs Image-to-image Translation project.
 ## Prerequisites
 - Python 3.3 or above
 - [Pytorch 0.4.0](torch.org)
