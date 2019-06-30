@@ -2,10 +2,6 @@
 
 This is the root directory of our project. Please visit the corresponding subfolder to see more details. Each subfolder contains everything you want including code, guideline and test/training results.
 
-## Authors
-
-Qi Ma, Shuwei Liang, Zhuo Yue, Cong Zhao (MLYZ team)
-
 ## Results
 
 Before diving into detailed techniques, you can visit our demo website to see some results!
